@@ -1,0 +1,7 @@
+<p>
+  issue-timeline-view works!
+</p>
+<div *ngFor="let event of events">
+  <ng-container *ngComponentOutlet="event.component injector: getPropertiesInjector(event.properties)">
+  </ng-container>
+</div>
