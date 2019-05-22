@@ -10,7 +10,6 @@ import { Properties } from '../../events/properties';
 export class LabeledEventComponent extends AbstractEventComponent implements OnInit {
   constructor(public properties: Properties) {
     super();
-    console.log(this.properties);
   }
 
   ngOnInit() {}

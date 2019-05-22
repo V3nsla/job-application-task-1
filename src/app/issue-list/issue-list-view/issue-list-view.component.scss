@@ -1,9 +1,22 @@
-.issue {
-  border-left: solid 1px;
-  border-right: solid 1px;
-  border-bottom: solid 1px;
+.issue-list {
+  margin: auto;
+  max-width: 900px;
+  border-left: solid 2px #e6ebf1;
+  border-right: solid 2px #e6ebf1;
+  border-bottom: solid 2px #e6ebf1;
   padding: 10px;
 }
 .first {
-  border-top: solid 1px;
+  border-top: solid 2px #e6ebf1;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.small-text {
+  color: #586069;
+  font-size: 12px;
 }

@@ -1,3 +1,9 @@
 <div class="general-event">
-  {{properties.actor.login}} added the default event
+  <div class="icon">
+    <fa name="superpowers"></fa>
+  </div>
+  <div class="content">
+    <span [style.font-weight]="'bold'">{{properties.actor.login}}</span> added the default event
+    <span> {{properties.createdAt | timeAgo}}</span>
+  </div>
 </div>

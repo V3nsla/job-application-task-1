@@ -1,0 +1,30 @@
+.comment {
+  min-height: 100px;
+  margin-left: 50px;
+  margin-top: -3px;
+}
+
+.header {
+  background-color: #f6f8fa;
+  border: 3px solid #e6ebf1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #586069;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 30px;
+  line-height: 30px;
+}
+
+.comment-content {
+  border-bottom: 3px solid #e6ebf1;
+  border-right: 3px solid #e6ebf1;
+  border-left: 3px solid #e6ebf1;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  color: #586069;
+  padding-left: 15px;
+  padding-right: 15px;
+  min-height: 70px;
+  line-height: 30px;
+}

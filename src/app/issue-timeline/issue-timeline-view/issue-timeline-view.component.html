@@ -1,7 +1,21 @@
-<p>
-  issue-timeline-view works!
-</p>
-<div *ngFor="let event of events">
-  <ng-container *ngComponentOutlet="event.component injector: getPropertiesInjector(event.properties)">
-  </ng-container>
+<div *ngIf="events.length === 0">No events for this issue
+  <div class="icon clickable no-margin-left"
+       title="Back to issue list"
+       (click)="navigateToIssueList()">
+    <fa name="arrow-left"></fa>
+  </div>
+</div>
+<div *ngIf="events.length > 0"
+     class="timeline">
+  <div class="icon clickable"
+       title="Back to issue list"
+       (click)="navigateToIssueList()">
+    <fa name="arrow-left"></fa>
+  </div>
+  <div *ngFor="let event of events, let i=index">
+    <div [ngClass]="{'first': i===0}">
+      <ng-container *ngComponentOutlet="event.component injector: getPropertiesInjector(event.properties)">
+      </ng-container>
+    </div>
+  </div>
 </div>

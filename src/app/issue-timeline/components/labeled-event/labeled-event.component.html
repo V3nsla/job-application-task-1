@@ -1,4 +1,11 @@
 <div class="general-event">
-  {{properties.actor.login}} added the <span
-        [style.background-color]="properties.label.color">{{properties.label.name}}</span>
+  <div class="icon">
+    <fa name="tag"></fa>
+  </div>
+  <div class="content">
+    <span [style.font-weight]="'bold'">{{properties.actor.login}}</span> added the
+    <span [style.background-color]="'#' + properties.label.color"
+          class="label">{{properties.label.name}}</span>
+    <span> {{properties.createdAt | timeAgo}}</span>
+  </div>
 </div>

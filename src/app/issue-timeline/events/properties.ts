@@ -1,7 +1,10 @@
 export class Properties {
+  id: string;
   actor: Actor;
   label?: Label;
   milestone?: Milestone;
+  body?: string;
+  createdAt: Date;
 }
 
 export interface Actor {

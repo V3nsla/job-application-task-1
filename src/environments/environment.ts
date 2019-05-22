@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  token: 'c8bc912a9730bd8a4130439717d2bd792fb1bb5e',
+  token: '54d7dcc509a08681b735d569c3b76000bfe03902 ',
   BASE_URL: 'http://localhost:4200/github/'
 };

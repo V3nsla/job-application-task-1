@@ -1,6 +1,7 @@
-<div class="issue"
+<div class="issue-list"
      *ngFor="let issue of issues, let i = index"
      [ngClass]="{'first': i===0}">
-  <div><a routerLink="/issue/{{issue.number}}">{{issue.title}}</a></div>
-  <div><span>opened {{issue.createdAt | timeAgo}} by {{issue.author}}</span></div>
+  <div class="title"
+       routerLink="/issue/{{issue.number}}">{{issue.title}}</div>
+  <div><span class="small-text">opened {{issue.createdAt | timeAgo}} by {{issue.author}}</span></div>
 </div>

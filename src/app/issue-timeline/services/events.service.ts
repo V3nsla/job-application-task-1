@@ -14,7 +14,11 @@ import { DefaultEventComponent } from '../components/default-event/default-event
   providedIn: 'root'
 })
 export class EventsService {
-  constructor(private http: HttpClient, @Inject(Event) private providedEvents: Event[]) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(Event) private providedEvents: Event[],
+    @Inject('EXCLUDED_EVENTS') private excludedEvents: EventName[]
+  ) {}
 
   getEventsForIssue(issueNumber: string): Observable<Event[]> {
     return this.http
@@ -24,7 +28,10 @@ export class EventsService {
       )
       .pipe(
         map((events: GitEvent[]) => this.mapToEventList(events)),
-        tap(events => console.log(events))
+        tap(events => console.log(events)),
+        map((events: Event[]) => {
+          return events.filter(item => !this.excludedEvents.includes(item.name));
+        })
       );
   }
 
@@ -36,10 +43,18 @@ export class EventsService {
   }
 
   private mapToEvent(gitEvent: GitEvent): Event {
+    console.log(gitEvent.created_at);
     return {
       name: gitEvent.event,
       component: this.getComponent(gitEvent.event),
-      properties: { actor: gitEvent.actor, label: gitEvent.label, milestone: gitEvent.milestone }
+      properties: {
+        id: gitEvent.id,
+        actor: gitEvent.actor,
+        label: gitEvent.label,
+        milestone: gitEvent.milestone,
+        body: gitEvent.body,
+        createdAt: new Date(gitEvent.created_at)
+      }
     };
   }
 

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+.general-event {
+  margin-left: 100px;
+  padding: 15px;
+  position: relative;
+  border-left: solid 3px #e6ebf1;
+  border-bottom: solid 3px #e6ebf1;
+  color: #586069;
+}
+
+.first {
+  border-top: solid 3px #e6ebf1;
+}
+
+.content {
+  margin-left: 25px;
+}
+
+.icon {
+  margin-left: -35px;
+  margin-top: -11px;
+  font-size: 20px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  background-color: lightgrey;
+  float: left;
+  text-align: center;
+}
+
+* {
+  font-family: 'arial';
+}
