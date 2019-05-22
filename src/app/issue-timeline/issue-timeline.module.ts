@@ -9,14 +9,21 @@ import { CommentedEvent } from './components/commented-event/commented-event';
 import { Event } from './events/event';
 import { DefaultEventComponent } from './components/default-event/default-event.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { TimeAgoPipe } from 'time-ago-pipe';
 import { SharedModule } from '../shared/shared.module';
+import { MilestonedEventComponent } from './components/milestoned-event/milestoned-event.component';
+import { MilestonedEvent } from './components/milestoned-event/milestoned-event';
 
 @NgModule({
-  declarations: [IssueTimelineViewComponent, LabeledEventComponent, CommentedEventComponent, DefaultEventComponent],
+  declarations: [
+    IssueTimelineViewComponent,
+    LabeledEventComponent,
+    CommentedEventComponent,
+    DefaultEventComponent,
+    MilestonedEventComponent
+  ],
   imports: [CommonModule, AngularFontAwesomeModule, SharedModule],
   exports: [IssueTimelineViewComponent],
-  entryComponents: [LabeledEventComponent, CommentedEventComponent, DefaultEventComponent]
+  entryComponents: [LabeledEventComponent, CommentedEventComponent, DefaultEventComponent, MilestonedEventComponent]
 })
 export class IssueTimelineModule {
   static forFeature(excludeEventsFromView: Array<EventName>): ModuleWithProviders {
@@ -25,7 +32,8 @@ export class IssueTimelineModule {
       providers: [
         { provide: 'EXCLUDED_EVENTS', useValue: excludeEventsFromView },
         { provide: Event, useClass: LabeledEvent, multi: true },
-        { provide: Event, useClass: CommentedEvent, multi: true }
+        { provide: Event, useClass: CommentedEvent, multi: true },
+        { provide: Event, useClass: MilestonedEvent, multi: true }
       ]
     };
   }

@@ -4,7 +4,7 @@ export class Properties {
   label?: Label;
   milestone?: Milestone;
   body?: string;
-  createdAt: Date;
+  created_at: Date;
 }
 
 export interface Actor {

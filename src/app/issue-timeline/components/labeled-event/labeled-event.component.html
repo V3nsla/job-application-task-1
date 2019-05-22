@@ -3,9 +3,9 @@
     <fa name="tag"></fa>
   </div>
   <div class="content">
-    <span [style.font-weight]="'bold'">{{properties.actor.login}}</span> added the
+    <span [style.font-weight]="'bold'">{{properties?.actor?.login}}</span> added the
     <span [style.background-color]="'#' + properties.label.color"
-          class="label">{{properties.label.name}}</span>
-    <span> {{properties.createdAt | timeAgo}}</span>
+          class="label">{{properties?.label?.name}}</span>
+    <span> {{properties?.created_at | timeAgo}}</span>
   </div>
 </div>

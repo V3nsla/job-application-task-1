@@ -1,7 +1,19 @@
-<div class="issue-list"
-     *ngFor="let issue of issues, let i = index"
-     [ngClass]="{'first': i===0}">
-  <div class="title"
-       routerLink="/issue/{{issue.number}}">{{issue.title}}</div>
-  <div><span class="small-text">opened {{issue.createdAt | timeAgo}} by {{issue.author}}</span></div>
-</div>
+<ng-container *ngIf="!loading">
+  <div class="issue-list"
+       *ngFor="let issue of issues, let i = index"
+       [ngClass]="{'first': i===0}"
+       (mouseenter)="issue.hover=true"
+       (mouseleave)="issue.hover=false"
+       [ngStyle]="{backgroundColor: issue.hover==true  ? '#f6f8fa' : 'white'}">
+    <div class="title"
+         routerLink="/issue/{{issue.number}}"
+         [queryParams]="{page: pageNumber, issue_id: issue.id}">{{issue.title}}</div>
+    <div><span class="small-text">opened {{issue.createdAt | timeAgo}} by {{issue.author}}</span></div>
+  </div>
+  <div class="paginator">
+    <app-paginator [currentPage]="pageNumber"
+                   [disabled]="disablePaginator"
+                   [link]="link"
+                   (paginate)=getIssues($event)></app-paginator>
+  </div>
+</ng-container>

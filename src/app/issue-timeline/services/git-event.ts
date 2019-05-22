@@ -4,7 +4,7 @@ import { Label, Milestone } from '../events/properties';
 export interface GitEvent {
   id: string;
   event: EventName;
-  created_at: string;
+  created_at: Date;
   actor: GitUser;
   label?: Label;
   milestone?: Milestone;

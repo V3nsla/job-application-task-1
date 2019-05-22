@@ -1,9 +1,7 @@
-import { Component, OnInit, Injector, ReflectiveInjector } from '@angular/core';
+import { Component, OnInit, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EventsService } from '../services/events.service';
 import { Event } from './../events/event';
 import { Properties } from '../events/properties';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-issue-timeline-view',
@@ -12,9 +10,11 @@ import { routerNgProbeToken } from '@angular/router/src/router_module';
 })
 export class IssueTimelineViewComponent implements OnInit {
   events: Event[];
+  pageNumber: string;
 
-  constructor(private route: ActivatedRoute, private router: Router, private eventsService: EventsService, private injector: Injector) {
+  constructor(private route: ActivatedRoute, private router: Router, private injector: Injector) {
     this.route.data.subscribe((data: any) => (this.events = data.events));
+    this.route.queryParamMap.subscribe(params => (this.pageNumber = params.get('page')));
   }
 
   getPropertiesInjector(properties: Properties): Injector {
@@ -27,6 +27,6 @@ export class IssueTimelineViewComponent implements OnInit {
   ngOnInit() {}
 
   navigateToIssueList() {
-    this.router.navigateByUrl('/');
+    this.router.navigate(['/'], { queryParams: { page: this.pageNumber } });
   }
 }

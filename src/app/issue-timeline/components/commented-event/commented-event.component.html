@@ -1,8 +1,8 @@
 <div class="comment">
   <div class="header">
-    {{properties.actor.login}} commented {{properties.createdAt | timeAgo}}
+    {{properties?.actor?.login}} commented {{properties?.created_at | timeAgo}}
   </div>
   <div class="comment-content">
-    {{properties.body}}
+    {{properties?.body}}
   </div>
 </div>

@@ -1,0 +1,11 @@
+<button [disabled]="currentPage === 1 || disabled"
+        (click)="first()">
+  <<</button> <button
+      [disabled]="currentPage === 1 || disabled"
+      (click)="previous()">
+    <</button> <span
+       class="pages">{{currentPage}}/{{lastPage}}</span>
+      <button [disabled]="currentPage === lastPage || disabled"
+              (click)="next()">></button>
+      <button [disabled]="currentPage === lastPage || disabled"
+              (click)="last()">>></button>
